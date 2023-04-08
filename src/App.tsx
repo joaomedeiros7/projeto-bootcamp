@@ -1,24 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import logo from "./logo.svg";
+import { formataEmReais, soma, cifrao } from "./formataEmReiais";
 
 function App() {
+  const appMainClass = "app-main";
+
+  const texto = "sou um paragrafo com um pouco de texto de uma const!";
+
+  const reais = formataEmReais(5);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div
+      classname={appMainClass}
+      id="teste-teste-teste-teste-teste-teste-teste"
+      style={}
+    >
+      <h1> sou um titulo h1</h1>
+      <p> {texto} </p>
+      <span>um valor: {reais}</span>
     </div>
   );
 }
