@@ -1,19 +1,20 @@
 import { useState, useEffect } from "react";
+import { api } from "../api";
 import { NotepadList, Notepad } from "../components/NotepadList";
 
 async function pegaNotepads() {
-  const res = await fetch("https://webservices.jumpingcrab.com/notepads", {
-    method: "get",
-  });
-  const notepads = await res.json();
+  const res = await api.get("/notepads");
+
+  const notepads = res.data;
+
   return notepads;
 }
 const initialNotepads: Notepad[] = [];
 
 export function Home() {
-  const [notepads, setNotepads] = useState([]);
+  const [notepads, setNotepads] = useState(initialNotepads);
   const [isLoading, setIsLoading] = useState(false);
-  const textoCarregando = isLoading ? "careggando..." : "";
+  const textoCarregando = isLoading ? "carregando..." : "";
 
   useEffect(() => {
     setIsLoading(true);
