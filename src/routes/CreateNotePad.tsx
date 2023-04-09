@@ -1,7 +1,17 @@
-import React from "react";
+import { useState } from "react";
+import { TextField } from "../components/TextField";
 
 export function CreateNotepad() {
-  return <div>Sou a pagina CreateNotepad!</div>;
-}
+  const [nome, setNome] = useState("");
 
-export {};
+  return (
+    <div>
+      <h1>sou a pagina CreateNotepad</h1>
+      <TextField
+        placeholder="digite o seu nome"
+        value={nome}
+        onChange={(nome) => setNome(nome)}
+      />
+    </div>
+  );
+}

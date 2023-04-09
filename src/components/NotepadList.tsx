@@ -1,29 +1,14 @@
-const notepads = [
-  {
-    id: 1,
-    title: "Um titulo 1",
-    subtitle: "um subtitulo 1",
-  },
+type notepad = {
+  id: number;
+  title: string;
+  subtitle: string;
+};
 
-  {
-    id: 2,
-    title: "Um titulo 2",
-    subtitle: "um subtitulo 2",
-  },
+export type NotepadListProps = {
+  notepads: notepad[];
+};
 
-  {
-    id: 3,
-    title: "Um titulo 3",
-    subtitle: "um subtitulo 3",
-  },
-  {
-    id: 4,
-    title: "Um titulo 4",
-    subtitle: "um subtitulo 4 ",
-  },
-];
-
-export function NotepadList() {
+export function NotepadList({ notepads }: NotepadListProps) {
   return (
     <ul>
       {notepads.map((notepadAtual) => {
