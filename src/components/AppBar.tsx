@@ -7,8 +7,8 @@ export function AppBar() {
     <header className="bg-white shadow-md flex flex-row items-center justify-between p-2 sticky top-0 left-0">
       <div className="flex flex-row items-center gap-2">
         <Link to="/" className="flex flex-row items-center gap-2">
-          <img src="/logorato.png" alt="logorato" className="h-[40px]" />
-          <h1 className="font-bold uppercase text-lg"> Pastebin </h1>
+          <img src="/ratinho.png.png" alt="logorato" className="h-[40px]" />
+          <h1 className="font-bold uppercase text-lg"> Crie Pads </h1>
         </Link>
         <Link
           to="/"
@@ -22,7 +22,7 @@ export function AppBar() {
             alert("fui clicado");
           }}
         >
-          Criar Notepad
+          Crie seu notepad!
         </button>
       </div>
     </header>

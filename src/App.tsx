@@ -5,6 +5,7 @@ import { AppBar } from "./components/AppBar";
 import { Home } from "./routes/Home";
 import { CreateNotepad } from "./routes/CreateNotePad";
 import { ViewNotepad } from "./routes/ViewNotepad";
+import { EditNotepad } from "./routes/EditNotepad";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/criar-notepad" element={<CreateNotepad />} />
           <Route path="/publicacoes/:id" element={<ViewNotepad />} />
+          <Route path="/publicacoes/editar/:id" element={<EditNotepad />} />
         </Routes>
 
         <CreateNotepad />

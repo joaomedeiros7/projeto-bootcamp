@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Button } from "../components/Button";
 import { Breadcrumbs } from "../components/Breadcrumbs";
+import { LinkButton } from "../components/LinkButton";
 import toast from "react-simple-toasts";
 import { api } from "../api";
 
@@ -46,6 +47,7 @@ export function ViewNotepad() {
           }
         }}
       ></button>
+      <LinkButton to={"/publicacoes/editar/${params.id}"}>editar</LinkButton>
 
       <span className="text-gray-500 my-2">#{notepad.id}</span>
 
@@ -58,6 +60,8 @@ export function ViewNotepad() {
       <p className="mb-4">{notepad.subtitle}</p>
 
       <p>{notepad.content}</p>
+
+      <div className="mt-4 flex flex-row gap-2"></div>
     </div>
   );
 }
