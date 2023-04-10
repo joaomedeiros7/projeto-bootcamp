@@ -23,7 +23,7 @@ export function ViewNotepad() {
   }, []);
 
   return (
-    <div>
+    <div className="md:bg-white w-full pd-4 md:max-w-screen-md md:mx-auto md:m-8 md:rounded-lg md:shadow-lg flex flex-col">
       <button
         onClick={async () => {
           const res = await api.delete("/notepads/${params.id}");
@@ -39,13 +39,15 @@ export function ViewNotepad() {
         }}
       ></button>
 
-      <span>{notepad.id}</span>
+      <span className="text-gray-500 mb-2">#{notepad.id}</span>
 
-      <span>{notepad.created_at}</span>
+      <time className="text-gray-500 text-sm" dateTime={notepad.created_at}>
+        {new Date(notepad.created_at).toLocaleDateString()}
+      </time>
 
-      <h1>{notepad.title}</h1>
+      <h1 className="text-2xl font-bold">{notepad.title}</h1>
 
-      <p>{notepad.subtitle}</p>
+      <p className="mb-4">{notepad.subtitle}</p>
 
       <p>{notepad.content}</p>
     </div>

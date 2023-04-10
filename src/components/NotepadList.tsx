@@ -1,24 +1,32 @@
-type notepad = {
+import { Link } from "react-router-dom";
+
+export type Notepad = {
   id: number;
   title: string;
   subtitle: string;
+  created_at: string;
 };
 
 export type NotepadListProps = {
-  notepads: notepad[];
+  notepads: Notepad[];
 };
 
 export function NotepadList({ notepads }: NotepadListProps) {
   return (
-    <ul>
+    <div className="bg-white w-full pd-4 md:max-w-screen-md md:mx-auto md:m-8 md:rounded-lg md:shadow-lg">
       {notepads.map((notepadAtual) => {
         return (
-          <li key={notepadAtual.id} className="mb-2">
-            <h2 className="font-bold text-lg">{notepadAtual.title}</h2>
-            <p>{notepadAtual.subtitle}</p>
-          </li>
+          <Link to={"/publicacoes/${notepadAtual.id}"} key={notepadAtual.id}>
+            <div key={notepadAtual.id} className="py-4 border-b">
+              <time dateTime={notepadAtual.created_at}>
+                {new Date(notepadAtual.created_at).toLocaleDateString()}
+              </time>
+              <h2 className="font-bold text-lg">{notepadAtual.title}</h2>
+              <p>{notepadAtual.subtitle}</p>
+            </div>
+          </Link>
         );
       })}
-    </ul>
+    </div>
   );
 }
