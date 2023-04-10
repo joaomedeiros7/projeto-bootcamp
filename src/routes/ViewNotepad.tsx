@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Button } from "../components/Button";
+import { Breadcrumbs } from "../components/Breadcrumbs";
 import toast from "react-simple-toasts";
 import { api } from "../api";
 
@@ -24,7 +25,14 @@ export function ViewNotepad() {
 
   return (
     <div className="md:bg-white w-full pd-4 md:max-w-screen-md md:mx-auto md:m-8 md:rounded-lg md:shadow-lg flex flex-col">
+      <Breadcrumbs
+        links={[
+          { title: "pagina inicial", link: "/" },
+          { title: notepad.title, link: "/publicacoes/${params.id}" },
+        ]}
+      ></Breadcrumbs>
       <button
+        className="bg-pink-700 hover:bg-pink-800"
         onClick={async () => {
           const res = await api.delete("/notepads/${params.id}");
           const deleteNotepadResponse = res.data;
@@ -39,7 +47,7 @@ export function ViewNotepad() {
         }}
       ></button>
 
-      <span className="text-gray-500 mb-2">#{notepad.id}</span>
+      <span className="text-gray-500 my-2">#{notepad.id}</span>
 
       <time className="text-gray-500 text-sm" dateTime={notepad.created_at}>
         {new Date(notepad.created_at).toLocaleDateString()}
